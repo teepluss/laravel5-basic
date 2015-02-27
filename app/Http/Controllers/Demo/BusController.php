@@ -1,19 +1,21 @@
 <?php namespace App\Http\Controllers\Demo;
 
-use App\Commands\PurchasePodcast;
 use App\Http\Controllers\Controller;
-
-use App\User, App\Podcast;
+use App\Commands\PurchasePodcast;
+use App\User, App\Podcast, Auth;
 
 class BusController extends Controller {
 
+    /**
+     * Example about purchase product.
+     *
+     * @return void
+     */
     public function getIndex()
     {
         $this->dispatch(
-            new PurchasePodcast(User::first(), Podcast::first())
+            new PurchasePodcast(user::first(), Podcast::first())
         );
-
-        return 'Done';
     }
 
 }

@@ -8,8 +8,6 @@ class PodcastWasPurchased extends Event {
 
 	use SerializesModels;
 
-	public $user, $podcast;
-
 	/**
 	 * Create a new event instance.
 	 *

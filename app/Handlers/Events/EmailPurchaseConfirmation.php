@@ -5,8 +5,6 @@ use App\Events\PodcastWasPurchased;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldBeQueued;
 
-use Log;
-
 class EmailPurchaseConfirmation {
 
 	/**
@@ -27,14 +25,7 @@ class EmailPurchaseConfirmation {
 	 */
 	public function handle(PodcastWasPurchased $event)
 	{
-		$user = $event->user;
-		$podcast = $event->podcast;
-
-		$action = sprintf('I am sending an email to %s to confirm purchasing an %s.', $user->email, $podcast->name);
-
-		Log::info('SendConfirmationEmail', [$action]);
-
-		echo '<p>'.$action.'</p>';
+		+dd($event);
 	}
 
 }

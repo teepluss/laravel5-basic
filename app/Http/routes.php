@@ -23,10 +23,30 @@ Route::controllers([
 Route::group(['namespace' => 'Demo', 'prefix' => 'demo'], function()
 {
     Route::controllers([
-        'bus'   => 'BusController',
-        'theme' => 'ThemeController',
-        'repo'  => 'RepoController',
-        'event' => 'EventController',
+        'bus'        => 'BusController',
+        'theme'      => 'ThemeController',
+        'repo'       => 'RepoController',
+        'components' => 'ComponentsController'
+    ]);
+
+});
+
+Route::group(['namespace' => 'Api', 'prefix' => 'api/v1'], function()
+{
+    Route::resources([
+        '/users'      => 'UsersController',
+        '/photos'     => 'PhotosController',
+        '/categories' => 'CategoriesController',
+        '/'           => 'ExampleController',
+    ]);
+});
+
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'acl']], function()
+{
+    Route::get('/', [
+        'uses'       => 'DashboardController@getIndex',
+        'as'         => 'get.dashboard.index',
+        'permission' => ['admin.dashboard.view']
     ]);
 });
 

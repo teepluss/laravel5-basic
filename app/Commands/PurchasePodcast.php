@@ -1,21 +1,19 @@
 <?php namespace App\Commands;
 
-use App\User;
-use App\Podcast;
 use App\Commands\Command;
-use App\Events\PodcastWasPurchased;
+
 use Illuminate\Contracts\Bus\SelfHandling;
 
-class PurchasePodcast extends Command implements SelfHandling {
+use App\Events\PodcastWasPurchased;
 
-	protected $user, $podcast;
+class PurchasePodcast extends Command implements SelfHandling {
 
 	/**
 	 * Create a new command instance.
 	 *
 	 * @return void
 	 */
-	public function __construct(User $user, Podcast $podcast)
+	public function __construct($user, $podcast)
 	{
 		$this->user = $user;
 		$this->podcast = $podcast;
@@ -28,6 +26,9 @@ class PurchasePodcast extends Command implements SelfHandling {
 	 */
 	public function handle()
 	{
+		// Handle the logic.
+
+
 		event(new PodcastWasPurchased($this->user, $this->podcast));
 	}
 

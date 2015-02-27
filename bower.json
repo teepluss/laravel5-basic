@@ -1,0 +1,17 @@
+{
+  "name": "Teepluss",
+  "version": "0.0.1",
+  "homepage": "https://github.com/teepluss/laravel5-basic",
+  "authors": [
+    "Teepluss <admin@jquerytips.com>"
+  ],
+  "description": "Laravel App",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

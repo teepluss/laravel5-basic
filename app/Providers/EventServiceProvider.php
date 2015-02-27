@@ -3,6 +3,8 @@
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
+use Event;
+
 class EventServiceProvider extends ServiceProvider {
 
     /**
@@ -12,8 +14,8 @@ class EventServiceProvider extends ServiceProvider {
      */
     protected $listen = [
         'App\Events\PodcastWasPurchased' => [
-            'App\Handlers\Events\EmailPurchaseConfirmation',
-        ],
+            'App\Handlers\Events\EmailPurchaseConfirmation'
+        ]
     ];
 
     /**

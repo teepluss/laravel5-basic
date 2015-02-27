@@ -6,9 +6,11 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
+use App\Features\User\Traits\Acl;
+
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
-	use Authenticatable, CanResetPassword;
+	use Authenticatable, CanResetPassword, Acl;
 
 	/**
 	 * The database table used by the model.
@@ -30,5 +32,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
+
+	/**
+	 * Relation between user and group.
+	 *
+	 * @return Collection
+	 */
+	public function groups()
+	{
+		return $this->belongsToMany('App\Group', 'user_groups');
+	}
 
 }

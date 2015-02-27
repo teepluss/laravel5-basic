@@ -14,3 +14,20 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.less('app.less');
 });
+
+elixir(function(mix) {
+
+    mix.copy('bower_components', 'public/components')
+    .scripts([
+        'struct.js',
+        'blogs.js',
+        'products.js'
+    ])
+    .styles([
+        'struct.css',
+        'blogs.css',
+        'products.css'
+    ]);
+
+});
+

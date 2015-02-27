@@ -16,10 +16,10 @@ class DetectEnvironment extends BaseDetectEnvironment {
     public function bootstrap(Application $app)
     {
         // You can use your logic here!
-        $app->detectEnvironment(function()
-        {
-            return 'something';
-        });
+        // $app->detectEnvironment(function()
+        // {
+        //     return 'something';
+        // });
 
         // You need to remove or comment this line,
         // if you have logic self.

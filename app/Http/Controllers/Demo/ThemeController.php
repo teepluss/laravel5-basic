@@ -12,7 +12,7 @@ class ThemeController extends Controller {
 
     public function getIndex()
     {
-        return $this->theme->scope('demo.theme.index')->render();
+        return $this->theme->of('demo.theme.index')->render();
     }
 
 }

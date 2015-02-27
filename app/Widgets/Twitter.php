@@ -1,4 +1,4 @@
-<?php namespace Dragon\Widgets;
+<?php namespace App\Widgets;
 
 use Teepluss\Theme\Theme;
 use Teepluss\Theme\Widget;
