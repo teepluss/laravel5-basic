@@ -7,16 +7,16 @@
 	"repositories": [
 		{
 			"type": "vcs",
-            "url": "/Users/Teepluss/Sites/PhpBox/Laravel/L50/workbench/laravel-theme"
+			"url": "/home/vagrant/Code/Laravel/L50/workbench/laravel-theme"
 		},
 		{
 			"type": "vcs",
-			"url": "/Users/Teepluss/Sites/PhpBox/Laravel/L50/workbench/laravel-console"
+			"url": "/home/vagrant/Code/Laravel/L50/workbench/laravel-console"
 		}
 	],
 	"require": {
 		"laravel/framework": "5.0.*",
-		"teepluss/theme": "dev-develop",
+		"teepluss/theme": "dev-master",
 		"darsain/laravel-console" : "dev-L5"
 	},
 	"require-dev": {

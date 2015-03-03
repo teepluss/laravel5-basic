@@ -11,11 +11,11 @@ class Kernel extends ConsoleKernel {
 	 * @var array
 	 */
 	protected $bootstrappers = [
-		//'Illuminate\Foundation\Bootstrap\DetectEnvironment',
-		'App\Bootstrap\DetectEnvironment',
+		'Illuminate\Foundation\Bootstrap\DetectEnvironment',
+		//'App\Bootstrap\DetectEnvironment',
 		'Illuminate\Foundation\Bootstrap\LoadConfiguration',
-		//'Illuminate\Foundation\Bootstrap\ConfigureLogging',
-		'App\Bootstrap\ConfigureLogging',
+		'Illuminate\Foundation\Bootstrap\ConfigureLogging',
+		//'App\Bootstrap\ConfigureLogging',
 		'Illuminate\Foundation\Bootstrap\HandleExceptions',
 		'Illuminate\Foundation\Bootstrap\RegisterFacades',
 		'Illuminate\Foundation\Bootstrap\SetRequestForConsole',

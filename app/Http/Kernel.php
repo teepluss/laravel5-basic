@@ -10,11 +10,11 @@ class Kernel extends HttpKernel {
 	 * @var array
 	 */
 	protected $bootstrappers = [
-		'App\Bootstrap\DetectEnvironment',
-		//'Illuminate\Foundation\Bootstrap\DetectEnvironment',
+		//'App\Bootstrap\DetectEnvironment',
+		'Illuminate\Foundation\Bootstrap\DetectEnvironment',
 		'Illuminate\Foundation\Bootstrap\LoadConfiguration',
-		'App\Bootstrap\ConfigureLogging',
-		//'Illuminate\Foundation\Bootstrap\ConfigureLogging',
+		//'App\Bootstrap\ConfigureLogging',
+		'Illuminate\Foundation\Bootstrap\ConfigureLogging',
 		'Illuminate\Foundation\Bootstrap\HandleExceptions',
 		'Illuminate\Foundation\Bootstrap\RegisterFacades',
 		'Illuminate\Foundation\Bootstrap\RegisterProviders',
