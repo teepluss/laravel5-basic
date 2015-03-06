@@ -30,6 +30,11 @@ class AppServiceProvider extends ServiceProvider {
 			'App\Services\Registrar'
 		);
 
+		$this->registerRepository();
+	}
+
+	protected function registerRepository()
+	{
 		$this->app->bind(
 			'App\Contracts\Repositories\UserRepositoryInterface',
 			'App\Repositories\UserRepository'

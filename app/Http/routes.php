@@ -24,8 +24,9 @@ Route::group(['namespace' => 'Demo', 'prefix' => 'demo'], function()
 {
     Route::controllers([
         'bus'        => 'BusController',
-        'theme'      => 'ThemeController',
         'repo'       => 'RepoController',
+        'theme'      => 'ThemeController',
+        'provider'   => 'ProviderController',
         'components' => 'ComponentsController'
     ]);
 

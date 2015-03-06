@@ -146,11 +146,19 @@ return [
 		'App\Providers\RouteServiceProvider',
 
 		/**
+		 * Application Components
+		 */
+		'Components\Message\MessageServiceProvider',
+
+		/**
 		 * 3rd Service Providers...
 		 */
 		//'Barryvdh\Debugbar\ServiceProvider',
+		'Teepluss\Hmvc\HmvcServiceProvider',
 		'Teepluss\Theme\ThemeServiceProvider',
 		'Darsain\Console\ConsoleServiceProvider',
+		'Teepluss\Restable\RestableServiceProvider',
+
 	],
 
 	/*
@@ -199,7 +207,9 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 
+		'HMVC'		=> 'Teepluss\Hmvc\Facades\HMVC',
 		'Theme'		=> 'Teepluss\Theme\Facades\Theme',
+		'Restable'  => 'Teepluss\Restable\Facades\Restable'
 	],
 
 ];
