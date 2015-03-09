@@ -4,14 +4,16 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class FooCommand extends Command {
+use Illuminate\Contracts\Logging\Log;
+
+class Cleaning extends Command {
 
 	/**
 	 * The console command name.
 	 *
 	 * @var string
 	 */
-	protected $name = 'command:name';
+	protected $name = 'cleaning';
 
 	/**
 	 * The console command description.
@@ -25,9 +27,11 @@ class FooCommand extends Command {
 	 *
 	 * @return void
 	 */
-	public function __construct()
+	public function __construct(Log $log)
 	{
 		parent::__construct();
+
+		$this->log = $log;
 	}
 
 	/**
@@ -37,7 +41,11 @@ class FooCommand extends Command {
 	 */
 	public function fire()
 	{
-		//
+		$current = date('d-m-Y H:i:s');
+
+		$this->log->info('test', [$current]);
+
+		$this->info('cleaning ' . $current);
 	}
 
 	/**
@@ -48,7 +56,7 @@ class FooCommand extends Command {
 	protected function getArguments()
 	{
 		return [
-			['example', InputArgument::REQUIRED, 'An example argument.'],
+			['example', InputArgument::OPTIONAL, 'An example argument.'],
 		];
 	}
 

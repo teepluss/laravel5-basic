@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "beb2938b6bbb425f4c309324380213d9",
+    "hash": "ab7039555161a7bfe09c616c48d62e6d",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -534,16 +534,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.0.13",
+            "version": "v5.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "c263240daa383e6b9bd979600dc61dcb2c436d53"
+                "reference": "f61e0098151c73db9068a6be6d86bfc60b01de25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/c263240daa383e6b9bd979600dc61dcb2c436d53",
-                "reference": "c263240daa383e6b9bd979600dc61dcb2c436d53",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f61e0098151c73db9068a6be6d86bfc60b01de25",
+                "reference": "f61e0098151c73db9068a6be6d86bfc60b01de25",
                 "shasum": ""
             },
             "require": {
@@ -655,7 +655,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-02-27 00:32:38"
+            "time": "2015-03-07 03:18:10"
         },
         {
             "name": "league/flysystem",
@@ -1807,7 +1807,7 @@
             "source": {
                 "type": "git",
                 "url": "/home/vagrant/Code/Laravel/L50/workbench/laravel-hmvc",
-                "reference": "98db3fa55f184bdc3e0486dfca4ce8c50d8b6469"
+                "reference": "b89565a997a824d734fb9a26c93407fee9d05810"
             },
             "require": {
                 "guzzle/guzzle": "3.9.1",
@@ -1817,11 +1817,6 @@
                 "illuminate/support": "4.1.x"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                }
-            },
             "autoload": {
                 "classmap": [
                     "src/Exceptions.php"
@@ -1845,7 +1840,7 @@
                 "hmvc",
                 "laravel"
             ],
-            "time": "2015-03-05 07:51:30"
+            "time": "2015-03-05 08:00:52"
         },
         {
             "name": "teepluss/restable",
@@ -1853,12 +1848,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/teepluss/laravel-restable.git",
-                "reference": "5acbc5db06ef6305b10d4682fd6e23d661c555d7"
+                "reference": "44019182e97bc34f9c71901bb6d55d4b95f7f361"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/teepluss/laravel-restable/zipball/5acbc5db06ef6305b10d4682fd6e23d661c555d7",
-                "reference": "5acbc5db06ef6305b10d4682fd6e23d661c555d7",
+                "url": "https://api.github.com/repos/teepluss/laravel-restable/zipball/44019182e97bc34f9c71901bb6d55d4b95f7f361",
+                "reference": "44019182e97bc34f9c71901bb6d55d4b95f7f361",
                 "shasum": ""
             },
             "require": {
@@ -1887,7 +1882,7 @@
                 "laravel",
                 "restful"
             ],
-            "time": "2015-03-03 16:49:27"
+            "time": "2015-03-05 08:22:24"
         },
         {
             "name": "teepluss/theme",
@@ -1895,7 +1890,7 @@
             "source": {
                 "type": "git",
                 "url": "/home/vagrant/Code/Laravel/L50/workbench/laravel-theme",
-                "reference": "5cc105cdc130589d76e8cf103a88697fc5671f33"
+                "reference": "343f600ae90a7b793aaffff9cfe6ca5645d5b204"
             },
             "require": {
                 "php": ">=5.3.0",
@@ -1932,7 +1927,7 @@
                 "twig",
                 "widget"
             ],
-            "time": "2015-03-05 07:35:15"
+            "time": "2015-03-05 08:23:18"
         },
         {
             "name": "twig/twig",

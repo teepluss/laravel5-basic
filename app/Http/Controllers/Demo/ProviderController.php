@@ -7,7 +7,12 @@ class ProviderController extends Controller {
 
     public function getIndex(Message $msg)
     {
-        var_dump($msg);
+        return view('demo.provider.index');
+    }
+
+    public function postIndex()
+    {
+
     }
 
 }

@@ -27,7 +27,8 @@ Route::group(['namespace' => 'Demo', 'prefix' => 'demo'], function()
         'repo'       => 'RepoController',
         'theme'      => 'ThemeController',
         'provider'   => 'ProviderController',
-        'components' => 'ComponentsController'
+        'components' => 'ComponentsController',
+        'decoration' => 'DecorationController'
     ]);
 
 });

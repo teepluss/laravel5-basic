@@ -29,6 +29,7 @@ class Kernel extends ConsoleKernel {
 	 */
 	protected $commands = [
 		'App\Console\Commands\Inspire',
+		'App\Console\Commands\Cleaning'
 	];
 
 	/**
@@ -39,8 +40,11 @@ class Kernel extends ConsoleKernel {
 	 */
 	protected function schedule(Schedule $schedule)
 	{
-		$schedule->command('inspire')
-				 ->hourly();
+		$schedule->command('inspire')->hourly();
+
+		$schedule->command('cleaning')->cron('*/1 * * * * *');
+
+		//$schedule->command('cleaning')->everyFiveMinutes();
 	}
 
 }

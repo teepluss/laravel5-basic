@@ -6,7 +6,7 @@ class True implements Adapter {
 
     public function send()
     {
-        return 'message sent';
+        return 'Message sent by True';
     }
 
 }

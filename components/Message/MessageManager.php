@@ -145,6 +145,17 @@ class MessageManager implements Factory {
     }
 
     /**
+     * Create an instance of the Twilio driver.
+     *
+     * @param  array  $config
+     * @return \Components\Message\Adapters\Twilio
+     */
+    protected function createTwilioDriver(array $config)
+    {
+        return $this->repository(new Adapters\Twilio($config));
+    }
+
+    /**
      * Create a new message repository with the given implementation.
      *
      * @param  \Components\Message\Contracts\Adapter  $adapter
