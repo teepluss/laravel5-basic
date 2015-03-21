@@ -1,58 +1,67 @@
 <?php namespace App\Repositories;
 
-use App\User;
-use App\Contracts\Repositories\UserRepositoryInterface;
+use App\Models\User;
+use Robbo\Presenter\Presenter;
+use Prettus\Repository\Eloquent\Repository;
+use Prettus\Repository\Criteria\RequestCriteria;
 
-class UserRepository implements UserRepositoryInterface {
+use Validator;
 
-    protected $user;
+class UserRepository extends Repository {
 
-    public function __construct(User $user)
-    {
-        $this->user = $user;
-    }
-
-    public function register($data)
-    {
-        return $this->user->create($data);
-    }
+    protected $fieldSearchable = [
+        'name' => 'like',
+        'email'
+    ];
 
     /**
-     * @param int   $take
-     * @param array $scopes
-     * @return \Illuminate\Pagination\Paginator
+     * @var Robbo\Presenter\Presenter
      */
-    public function getCollection($take = 5, $scopes = [])
-    {
+    //protected $presenter = 'App\Repositories\Presenters\User\UserPresenter';
 
+    public function __construct(User $model)
+    {
+        parent::__construct($model);
     }
 
-    /**
-     * @param array $ids
-     * @param int   $take
-     * @param array $scopes
-     * @return \Illuminate\Pagination\Paginator
-     */
-    public function getSubset(array $ids = [], $take = 5, $scopes = [])
+    public function boot()
     {
+        // Default criteria
+        $this->pushCriteria(new Criterias\User\MyCriteria());
 
+        // Searchable criteria
+        $this->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+
+        $this->pushMutatorBeforeAll(new Mutators\User\UserAttributeMutator());
     }
 
-    /**
-     * @param  int $id
-     * @return \App\Models\BaseModel
-     */
-    public function getItem($id)
+    public function create(array $attributes)
     {
+        $v = Validator::make($attributes, [
+            'name'  => 'required',
+            'email' => 'required'
+        ]);
 
-    }
+        $v->after(function($v) use ($attributes)
+        {
+            if (preg_match('/@/', $attributes['name']))
+            {
+                $v->errors()->add('name', 'Something is wrong with this name!');
+            }
+        });
 
-    /**
-     * @return \App\Contracts\DataProviders\BaseDataProviderInterface
-     */
-    public function getDataProvider()
-    {
+        if ($v->fails())
+        {
+            throw new Exceptions\ValidateException($v);
+        }
 
+        // Another logic, another exception.
+        // if (preg_match('/@/', $attributes['name']))
+        // {
+        //     throw new Exceptions\User\InvalidNameFormatException('Your name is content invalid character.');
+        // }
+
+        return parent::create($attributes);
     }
 
 }

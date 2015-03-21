@@ -30,6 +30,11 @@ class AppServiceProvider extends ServiceProvider {
 			'App\Services\Registrar'
 		);
 
+		$this->app->singleton('App\Services\Something', function($app, $config)
+		{
+			return (new \App\Services\Something($config))->setName();
+		});
+
 		$this->registerRepository();
 	}
 

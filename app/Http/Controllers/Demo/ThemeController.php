@@ -12,7 +12,12 @@ class ThemeController extends Controller {
 
     public function getIndex()
     {
-        return $this->theme->of('demo.theme.index')->render();
+        $data = [
+            'name'  => 'Tee',
+            'email' => 'teepluss@gmail.com'
+        ];
+
+        return $this->theme->of('demo.theme.index', $data)->render();
     }
 
 }

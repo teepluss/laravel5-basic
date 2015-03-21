@@ -159,7 +159,7 @@ return [
 		'Teepluss\Theme\ThemeServiceProvider',
 		'Darsain\Console\ConsoleServiceProvider',
 		'Teepluss\Restable\RestableServiceProvider',
-
+		'Prettus\Repository\RepositoryServiceProvider',
 	],
 
 	/*
