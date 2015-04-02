@@ -13,10 +13,13 @@
 @endforeach
 
 <form method="post">
-    <input type="hidden" name="_token" value="{{ Session::token() }}">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="form-group">
         <label for="exampleInputName">Name</label>
         <input type="text" class="form-control" id="exampleInputName" name="name" placeholder="Enter name">
+        @if ($errors->has('name'))
+        <p>{{ $errors->first('name') }}</p>
+        @endif
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>

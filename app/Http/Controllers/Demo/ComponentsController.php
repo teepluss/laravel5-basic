@@ -6,7 +6,7 @@ class ComponentsController extends Controller {
 
     public function getIndex()
     {
-        return view('demo.components.index');
+
     }
 
 }

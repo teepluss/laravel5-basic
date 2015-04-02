@@ -2,12 +2,13 @@
 
 use App\Models\User;
 use Robbo\Presenter\Presenter;
-use Prettus\Repository\Eloquent\Repository;
+use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
+use Illuminate\Validation\Factory as Validator;
+use Illuminate\Container\Container as Application;
+use App\Repositories\Contracts\UserRepository as UserRepositoryContract;
 
-use Validator;
-
-class UserRepository extends Repository {
+class UserRepository extends BaseRepository implements UserRepositoryContract {
 
     protected $fieldSearchable = [
         'name' => 'like',
@@ -15,13 +16,23 @@ class UserRepository extends Repository {
     ];
 
     /**
-     * @var Robbo\Presenter\Presenter
+     * Specify Model class name
+     *
+     * @return string
      */
-    //protected $presenter = 'App\Repositories\Presenters\User\UserPresenter';
-
-    public function __construct(User $model)
+    public function model()
     {
-        parent::__construct($model);
+        return "App\\Models\\User";
+    }
+
+    /**
+     * Specify Presenter class name
+     *
+     * @return mixed
+     */
+    public function presenter()
+    {
+        return "App\\Repositories\\Presenters\\User\\UserPresenter";
     }
 
     public function boot()
@@ -31,13 +42,11 @@ class UserRepository extends Repository {
 
         // Searchable criteria
         $this->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-
-        $this->pushMutatorBeforeAll(new Mutators\User\UserAttributeMutator());
     }
 
     public function create(array $attributes)
     {
-        $v = Validator::make($attributes, [
+        $v = $this->app['validator']->make($attributes, [
             'name'  => 'required',
             'email' => 'required'
         ]);

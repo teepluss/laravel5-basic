@@ -2,9 +2,8 @@
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\UserRepository;
+use App\Repositories\Contracts\UserRepository;
 use App\Repositories\Exceptions\ValidateException;
-use App\Repositories\Exceptions\User\InvalidNameFormatException;
 
 class UsersController extends Controller {
 
@@ -33,7 +32,7 @@ class UsersController extends Controller {
      */
     public function getIndex()
     {
-        $users = $this->user->with(['podcasts'])->all();
+        $users = $this->user->skipPresenter()->with(['podcasts'])->all();
 
         return $users;
     }

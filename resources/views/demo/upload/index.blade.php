@@ -5,7 +5,7 @@
 </div>
 <div class="row">
 <form method="post" enctype="multipart/form-data">
-    <input type="hidden" name="_token" value="{{ Session::token() }}">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="form-group">
         <label for="exampleInputFile">File input</label>
         <input type="file" id="exampleInputFile" name="userfile">
@@ -14,4 +14,5 @@
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
 </div>
+swww
 @stop

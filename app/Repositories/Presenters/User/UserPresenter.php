@@ -1,31 +1,16 @@
-<?php namespace App\Rositories\Presenters\User;
+<?php namespace App\Repositories\Presenters\User;
 
-use Robbo\Presenter\Presenter;
+use Prettus\Repository\Presenter\FractalPresenter;
 
-class UserPresenter extends Presenter {
-
-    /**
-     * URL
-     *
-     * eg. $this['url'], $this->url
-     *
-     * @return string
-     */
-    public function presentUrl()
-    {
-        return 'http://avatar.io/'.$this->id.'-'.$this->name;
-    }
+class UserPresenter extends FractalPresenter {
 
     /**
-     * URL
+     * Prepare data to present
      *
-     * eg. $this->url()
-     *
-     * @return string
+     * @return \League\Fractal\TransformerAbstract
      */
-    public function url()
+    public function getTransformer()
     {
-        return 'http://avatar.io';
+        return new UserTransformer();
     }
-
 }

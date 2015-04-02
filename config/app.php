@@ -154,12 +154,13 @@ return [
 		/**
 		 * 3rd Service Providers...
 		 */
-		//'Barryvdh\Debugbar\ServiceProvider',
+		'Barryvdh\Debugbar\ServiceProvider',
 		'Teepluss\Hmvc\HmvcServiceProvider',
 		'Teepluss\Theme\ThemeServiceProvider',
 		'Darsain\Console\ConsoleServiceProvider',
 		'Teepluss\Restable\RestableServiceProvider',
-		'Prettus\Repository\RepositoryServiceProvider',
+		'Prettus\Repository\Providers\RepositoryServiceProvider',
+
 	],
 
 	/*

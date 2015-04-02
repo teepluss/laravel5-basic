@@ -30,7 +30,7 @@ class MessageServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app->singleton('Components\Message\MessageManager', function($app)
+		$this->app->singleton('Components\Message\Contracts\Factory', function($app)
 		{
 			return new MessageManager($app);
 		});

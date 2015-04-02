@@ -1,11 +1,11 @@
 <?php namespace App\Repositories\Criterias\User;
 
-use Prettus\Repository\Contracts\Criteria;
-use Prettus\Repository\Contracts\Repository;
+use Prettus\Repository\Contracts\RepositoryInterface;
+use Prettus\Repository\Contracts\CriteriaInterface;
 
-class MyCriteria implements Criteria {
+class MyCriteria implements CriteriaInterface {
 
-    public function apply($query, Repository $repository)
+    public function apply($query, RepositoryInterface $repository)
     {
         $query = $query->whereNotNull('email');
 

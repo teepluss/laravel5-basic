@@ -1,13 +1,13 @@
 <?php namespace App\Http\Controllers\Demo;
 
+use Teepluss\Theme\Contracts\Theme;
 use App\Http\Controllers\Controller;
-use Theme;
 
 class ThemeController extends Controller {
 
-    public function __construct()
+    public function __construct(Theme $theme)
     {
-        $this->theme = Theme::uses('default')->layout('mobile');
+        $this->theme = $theme->uses('default')->layout('mobile');
     }
 
     public function getIndex()

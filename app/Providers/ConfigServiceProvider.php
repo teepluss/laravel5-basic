@@ -16,7 +16,9 @@ class ConfigServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		config([
-
+			'app' => array_merge(config('app'), [
+				'timezone' => 'Asia/Bangkok'
+			])
 		]);
 	}
 

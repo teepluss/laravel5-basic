@@ -12,6 +12,6 @@ class Facade extends BaseFacade {
      *
      * @return string
      */
-    protected static function getFacadeAccessor() { return 'Components\Message\MessageManager'; }
+    protected static function getFacadeAccessor() { return 'Components\Message\Contracts\Factory'; }
 
 }

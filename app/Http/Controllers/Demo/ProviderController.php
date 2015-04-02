@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers\Demo;
 
 use App\Http\Controllers\Controller;
-use Components\Message\MessageManager as Message;
+use Components\Message\Contracts\Factory as Message;
 
 class ProviderController extends Controller {
 

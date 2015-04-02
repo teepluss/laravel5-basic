@@ -27,6 +27,7 @@ Route::group(['namespace' => 'Demo', 'prefix' => 'demo'], function()
         'users'      => 'UsersController',
         'theme'      => 'ThemeController',
         'upload'     => 'UploadController',
+        'angular'    => 'AngularController',
         'provider'   => 'ProviderController',
         'components' => 'ComponentsController',
         'decoration' => 'DecorationController'
@@ -38,18 +39,16 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api/v1'], function()
 {
     Route::resources([
         '/users'      => 'UsersController',
-        '/photos'     => 'PhotosController',
-        '/categories' => 'CategoriesController',
-        '/'           => 'ExampleController',
     ]);
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'acl']], function()
 {
-    Route::get('/', [
+    Route::get('/{dashboard?}', [
         'uses'       => 'DashboardController@getIndex',
         'as'         => 'get.dashboard.index',
-        'permission' => ['admin.dashboard.view']
-    ]);
+        'permission' => ['admin.dashboard.view'],
+    ])
+    ->where('dashboard', 'dashboard');
 });
 

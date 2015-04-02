@@ -1,8 +1,14 @@
-<?php namespace App\Features\User\Traits;
+<?php namespace App\Models\Traits;
 
 trait Acl {
 
-    public function can(array $permissions = [])
+    /**
+     * Check user permission.
+     *
+     * @param  array  $permissions
+     * @return boolean
+     */
+    public function can(array $permissions = array())
     {
         if ($permissions)
         {
@@ -12,7 +18,13 @@ trait Acl {
         return false;
     }
 
-    public function inGroup(array $groups = [])
+    /**
+     * Check user in group.
+     *
+     * @param  array  $groups
+     * @return boolean
+     */
+    public function inGroup(array $groups = array())
     {
         $groups = array_map('strtolower', $groups);
 
@@ -21,16 +33,21 @@ trait Acl {
         return (bool) count(array_intersect($havingGroups, $groups));
     }
 
-    public function canAccessRoute($route)
-    {
-        // Wating to implement.
-    }
-
+    /**
+     * Get user group.
+     *
+     * @return array
+     */
     public function getGroups()
     {
         return $this->groups->fetch('name')->toArray();
     }
 
+    /**
+     * Get user merge permission.
+     *
+     * @return array
+     */
     public function getPermissions()
     {
         $havingPermissions = [];
@@ -43,6 +60,12 @@ trait Acl {
         return $havingPermissions;
     }
 
+    /**
+     * Check user permission.
+     *
+     * @param  array  $permissions
+     * @return interger
+     */
     protected function checkPermission(array $permissions)
     {
         $havingPermissions = $this->getPermissions();
